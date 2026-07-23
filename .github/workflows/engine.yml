@@ -7,19 +7,20 @@ on:
     branches: [ main ]
 
 jobs:
-  verify:
+  build-engine:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Java
+      - name: Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
-      - name: Show project
+      - name: Verify
         run: |
-          pwd
-          ls -R
+          java -version
+          find engine -maxdepth 3 -type f
