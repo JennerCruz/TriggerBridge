@@ -1,0 +1,29 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+LOG="$HOME/TriggerBridge/runtime/events/events.log"
+
+case "$1" in
+
+emit)
+echo "$(date '+%F %T') | $2" >> "$LOG"
+echo "Evento enviado: $2"
+tb dispatch "$2"
+;;
+
+list)
+cat "$LOG" 2>/dev/null || echo "Sin eventos."
+;;
+
+clear)
+> "$LOG"
+echo "Eventos eliminados."
+;;
+
+*)
+echo "Uso:"
+echo "tb event emit <evento>"
+echo "tb event list"
+echo "tb event clear"
+;;
+
+esac

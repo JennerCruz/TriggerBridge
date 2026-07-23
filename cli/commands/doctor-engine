@@ -1,0 +1,22 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+BASE="$HOME/TriggerBridge/engine/src/main/kotlin/com/triggerbridge"
+
+echo "== Engine Doctor =="
+
+for dir in \
+core \
+bootstrap \
+bus \
+dispatcher \
+plugins \
+sdk \
+logger \
+lifecycle
+do
+    if [ -d "$BASE/$dir" ]; then
+        echo "[OK] $dir"
+    else
+        echo "[FALTA] $dir"
+    fi
+done

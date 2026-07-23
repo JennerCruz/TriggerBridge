@@ -1,0 +1,18 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+CMD="$1"
+
+if [ -z "$CMD" ]; then
+    CMD="help"
+fi
+
+COMMAND="$HOME/TriggerBridge/cli/commands/$CMD"
+
+if [ -x "$COMMAND" ]; then
+    shift
+    "$COMMAND" "$@"
+else
+    echo "Comando '$CMD' no existe."
+    echo
+    "$HOME/TriggerBridge/cli/commands/help"
+fi

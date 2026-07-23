@@ -1,0 +1,11 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "== TriggerBridge Build =="
+
+cd "$HOME/TriggerBridge/engine" || exit 1
+
+if [ -f "./gradlew" ]; then
+    ./gradlew build
+else
+    echo "Gradle Wrapper no encontrado."
+fi

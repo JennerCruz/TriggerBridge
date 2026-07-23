@@ -1,0 +1,25 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+case "$1" in
+
+new)
+mkdir -p actions/"$2"
+echo "{}" > actions/"$2"/action.json
+touch actions/"$2"/README.md
+echo "Acción '$2' creada."
+;;
+
+list)
+echo "Acciones:"
+for a in actions/*; do
+    [ -d "$a" ] && echo "- $(basename "$a")"
+done
+;;
+
+*)
+echo "Uso:"
+echo "tb action new <nombre>"
+echo "tb action list"
+;;
+
+esac

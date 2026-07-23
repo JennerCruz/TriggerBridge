@@ -1,0 +1,3 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "TriggerBridge CLI 0.0.1-dev"

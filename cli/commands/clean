@@ -1,0 +1,7 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "Limpiando..."
+
+rm -rf "$HOME/TriggerBridge/engine/build"
+
+echo "OK"

@@ -1,0 +1,17 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+case "$1" in
+
+plugin)
+mkdir -p plugins/"$2"/{src,tests}
+touch plugins/"$2"/README.md
+echo "{}" > plugins/"$2"/plugin.json
+echo "Plugin '$2' creado."
+;;
+
+*)
+echo "Uso:"
+echo "tb new plugin <nombre>"
+;;
+
+esac

@@ -1,0 +1,8 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "=== TriggerBridge ==="
+echo "Versión : $(cat VERSION)"
+echo "Plugins : $(find plugins -mindepth 1 -maxdepth 1 -type d | wc -l)"
+echo "Acciones: $(find actions -mindepth 1 -maxdepth 1 -type d | wc -l)"
+echo "Reglas  : $(wc -l < runtime/rules/rules.db 2>/dev/null || echo 0)"
+echo "Eventos : $(wc -l < runtime/events/events.log 2>/dev/null || echo 0)"

@@ -1,0 +1,25 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+RULES=runtime/rules/rules.db
+
+case "$1" in
+add)
+echo "$2|$3" >> "$RULES"
+echo "✓ Regla agregada."
+;;
+
+list)
+cat "$RULES" 2>/dev/null || echo "Sin reglas."
+;;
+
+clear)
+> "$RULES"
+echo "✓ Reglas eliminadas."
+;;
+
+*)
+echo "Uso:"
+echo "tb rule add <evento> <accion>"
+echo "tb rule list"
+;;
+esac

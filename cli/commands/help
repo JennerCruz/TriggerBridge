@@ -1,0 +1,8 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+echo "TriggerBridge CLI"
+echo
+echo "Comandos disponibles:"
+echo "  help"
+echo "  version"
+echo "  doctor"

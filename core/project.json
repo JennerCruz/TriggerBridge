@@ -1,0 +1,8 @@
+{
+  "name": "TriggerBridge",
+  "version": "0.1.0-alpha",
+  "engine": "tb",
+  "created_with": "Termux",
+  "language": "Kotlin",
+  "minimum_android": 10
+}

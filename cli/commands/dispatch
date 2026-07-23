@@ -1,0 +1,17 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+RULES="$HOME/TriggerBridge/runtime/rules/rules.db"
+
+grep "^$1|" "$RULES" | while IFS="|" read EVENT ACTION
+do
+    echo "Evento : $EVENT"
+    echo "Acción : $ACTION"
+
+    SCRIPT="$HOME/TriggerBridge/actions/$ACTION/run.sh"
+
+    if [ -x "$SCRIPT" ]; then
+        "$SCRIPT"
+    else
+        echo "No existe $SCRIPT"
+    fi
+done
