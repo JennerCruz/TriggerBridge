@@ -1,7 +1,9 @@
-package com.triggerbridge
+package com.triggerbridge.demo
 
 import com.triggerbridge.runtime.CoreRuntime
 import com.triggerbridge.plugins.telegram.TelegramTrigger
+import com.triggerbridge.Rule
+
 
 fun main() {
 
@@ -14,13 +16,16 @@ fun main() {
         )
     )
 
+
     val telegram = TelegramTrigger()
 
     val event = telegram.receiveMessage(
         "activar termux"
     )
 
+
     runtime.emit(
         event.name
     )
+
 }

@@ -8,13 +8,20 @@ class Dispatcher(
     private val registry: ActionRegistry
 ) {
 
-    fun dispatch(event: Event, rules: List<Rule>) {
+    fun dispatch(
+        event: Event,
+        rules: List<Rule>
+    ) {
 
         rules
             .filter { it.event == event.name }
-            .forEach {
-                registry.execute(it.action)
-            }
+            .forEach { rule ->
 
+                println("Ejecutando acción: ${rule.action}")
+
+                registry.execute(
+                    rule.action
+                )
+            }
     }
 }
