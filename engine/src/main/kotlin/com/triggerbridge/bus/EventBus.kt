@@ -11,6 +11,8 @@ class EventBus {
     }
 
     fun publish(event: Event) {
-        listeners.forEach { it(event) }
+        listeners.forEach { listener ->
+            listener(event)
+        }
     }
 }
