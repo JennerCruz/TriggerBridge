@@ -1,4 +1,4 @@
-name: TriggerBridge CI
+name: TriggerBridge Engine CI
 
 on:
   push:
@@ -8,19 +8,27 @@ on:
 
 jobs:
   build-engine:
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Java 21
+      - name: Setup Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
-      - name: Verify
+      - name: Build Engine
+        working-directory: engine
         run: |
-          java -version
-          find engine -maxdepth 3 -type f
+          chmod +x gradlew
+          ./gradlew build
+
+      - name: Upload Engine Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: triggerbridge-engine
+          path: engine/build/libs/
