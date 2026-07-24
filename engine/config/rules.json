@@ -1,0 +1,6 @@
+[
+  {
+    "event": "telegram.message",
+    "action": "termux"
+  }
+]
